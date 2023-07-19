@@ -32,6 +32,11 @@ const questions = [
       },
       {
         type: 'input',
+        message: 'Any contributions?',
+        name: 'contributing'
+      },
+      {
+        type: 'input',
         message: 'Enter Test insrtuctions',
         name: 'tests'
       },
@@ -50,10 +55,39 @@ const questions = [
 const fileName = 'test.txt';
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+    //store data as independent variables
+    const {title, description, installation, usage, license, contributing, tests, username, email} = data;
+    let readMe;
+    //console.log(data);
+    //Sections//////////////////////////////////////////////////
+    //Title--------------------
+    let titleSect = '';
+    if(title === '')  {titleSect = '# <Your-Project-Title>';}
+    else {titleSect = `# ${title}`;}
+    //Description----------------
+    let descriptionSect = '## Description';
+    if(description !== '')  {descriptionSect += `\n${description}`;}
+    //Table of Contents----------------
+    let tableContents = '## Table of Contents';
+    if(installation !== '') 
+      {tableContents += '\n- [Installation](#installation)';}
+    if(usage !== '') 
+      {tableContents += '\n- [Usage](#usage)';}
+    if(license !== '') 
+      {tableContents += '\n- [License](#license)';}
+    if(contributing !== '') 
+      {tableContents += '\n- [Contributing](#contributing)';}
+    if(tests !== '') 
+      {tableContents += '\n- [Tests](#tests)';}
+    if(username !== '' || email !== '') 
+      {tableContents += '\n- [Questions](#questions)';}
+    //console.log('table: \n' + tableContents);
+    //end of Sections//////////////////////////////////////////////////
     //test generateMarkdown
-    var test = generateMarkdown(data);
-    console.log(test);
+    var mark = generateMarkdown(license);
+    
 
+    //generate file
     fs.writeFile(fileName, JSON.stringify(data.title), (err) =>
       err ? console.log(err) : console.log('Success!')
     );
