@@ -25,6 +25,29 @@ const questions = [
         name: 'usage'
       },
       {
+        type: 'confirm',
+        message: 'Add photo?',
+        name: 'photoBool',
+      },
+      {
+        type: 'input',
+        message: 'Photo file\'s name (Will refer to assets/images folder)',
+        name: 'photoFile',
+        when(answers) //only asks if photBool is true
+        {
+          return answers.photoBool;
+        }
+      },
+      {
+        type: 'input',
+        message: 'Photo\'s description',
+        name: 'photoDescription',
+        when(answers) //only asks if photBool is true
+        {
+          return answers.photoBool;
+        }
+      },
+      {
         type: 'list',
         message: 'what is it\s license?',
         choices: ['MIT License', 'GNU'],
@@ -56,8 +79,8 @@ const fileName = 'README.md';
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     //store data as independent variables
-    const {title, description, installation, usage, license, contributing, tests, username, email} = data;
-    //console.log(data);
+    const {title, description, installation, usage, photoBool, license, contributing, tests, username, email} = data;
+    console.log(data);
     //Sections//////////////////////////////////////////////////
     //Title--------------------
     let titleSect = '';
@@ -85,9 +108,15 @@ function writeToFile(fileName, data) {
     if(installation !== '')  {installationSect = `## Installation\n${installation}`;}
     //Usage---------------------------
     let usageSect = '';
-    if(usage !== '')  
+    if(usage !== '' || photoBool)  
     {
-      usageSect = `## Usage\n${usage} \n![screenshot](./assets/images/screenshot.png)`;
+      usageSect = `## Usage\n${usage}`;
+      if (photoBool) 
+      {
+         const {photoFile, photoDescription} = data;
+
+         usageSect += `\n![${photoDescription}](./assets/images/${photoFile})`;
+      }
     }
     //License---------------------------
     let licenseSect = '';
@@ -117,7 +146,7 @@ function writeToFile(fileName, data) {
         questionsSect += `\nEmail: ${email}`;
       }
     }
-    console.log('questions: \n' + questionsSect);
+    //console.log('questions: \n' + questionsSect);
     //end of Sections//////////////////////////////////////////////////
     //put all sections in array
     let sections = [
@@ -134,7 +163,7 @@ function writeToFile(fileName, data) {
     
     //remove all empty sections
     let finalSections = sections.filter(function(item) {return item.trim() != '';})
-    console.log(finalSections);
+    //console.log(finalSections);
     let readMe =``;
     finalSections.forEach(sec => readMe += `\n${sec}\n`);
     //generate file
