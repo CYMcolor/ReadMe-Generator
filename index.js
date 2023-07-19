@@ -4,75 +4,90 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
+  {
+      type: 'input',
+      message: 'What is the title of your project?',
+      name: 'title',
+  },
+  {
+    type: 'input',
+    message: 'What is it\'s description?',
+    name: 'description',
+  },
+  {
+    type: 'input',
+    message: 'Installation instructions?',
+    name: 'installation',
+  },
+  {
+    type: 'input',
+    message: 'What is it\'s usage?',
+    name: 'usage'
+  },
+  {
+    type: 'confirm',
+    message: 'Add photo?',
+    name: 'photoBool',
+  },
+  {
+    type: 'input',
+    message: 'Photo file\'s name (Will refer to assets/images folder)',
+    name: 'photoFile',
+    when(answers) //only asks if photBool is true
     {
-        type: 'input',
-        message: 'What is the title of your project?',
-        name: 'title',
-      },
-      {
-        type: 'input',
-        message: 'What is it\'s description?',
-        name: 'description',
-      },
-      {
-        type: 'input',
-        message: 'Installation instructions?',
-        name: 'installation',
-      },
-      {
-        type: 'input',
-        message: 'What is it\'s usage?',
-        name: 'usage'
-      },
-      {
-        type: 'confirm',
-        message: 'Add photo?',
-        name: 'photoBool',
-      },
-      {
-        type: 'input',
-        message: 'Photo file\'s name (Will refer to assets/images folder)',
-        name: 'photoFile',
-        when(answers) //only asks if photBool is true
-        {
-          return answers.photoBool;
-        }
-      },
-      {
-        type: 'input',
-        message: 'Photo\'s description',
-        name: 'photoDescription',
-        when(answers) //only asks if photBool is true
-        {
-          return answers.photoBool;
-        }
-      },
-      {
-        type: 'list',
-        message: 'what is it\s license?',
-        choices: ['MIT License', 'GNU'],
-        name: 'license'
-      },
-      {
-        type: 'input',
-        message: 'Any contributions?',
-        name: 'contributing'
-      },
-      {
-        type: 'input',
-        message: 'Enter Test insrtuctions',
-        name: 'tests'
-      },
-      {
-        type: 'input',
-        message: 'Enter GitHub username',
-        name: 'username'
-      },
-      {
-        type: 'input',
-        message: 'Enter email',
-        name: 'email'
-      }
+      return answers.photoBool;
+    }
+  },
+  {
+    type: 'input',
+    message: 'Photo\'s description',
+    name: 'photoDescription',
+    when(answers) //only asks if photBool is true
+    {
+      return answers.photoBool;
+    }
+  },
+  {
+    type: 'list',
+    message: 'what is it\s license?',
+    choices: [
+      'MIT License', 
+      'GNU GPLv3',
+      'ApacheLicense 2.0',
+      'Boost Software LLicense 1.0',
+      'BSD 2-Clause "Simplified" License',
+      'BSD 3-Clause "New" or "Revised" License',
+      'Creative Commons Zero v1.0 Universal',
+      'Eclipse Public License 2.0',
+      'GNU AGPLv3',
+      'GNU GPLv2',
+      'GNU LGPLv2.1',
+      'Mozilla Public License 2.0',
+      'The Unlicense',
+      'none'
+    ],
+    name: 'license'
+  },
+  {
+    type: 'input',
+    message: 'Any contributions?',
+    name: 'contributing'
+  },
+  {
+    type: 'input',
+    message: 'Enter Test insrtuctions',
+    name: 'tests'
+  },
+  {
+    type: 'input',
+    message: 'Enter GitHub username',
+    name: 'username'
+  },
+  {
+    type: 'input',
+    message: 'Enter email',
+    name: 'email'
+  }
 ];
 
 const fileName = 'README.md';
@@ -108,14 +123,22 @@ function writeToFile(fileName, data) {
     if(installation !== '')  {installationSect = `## Installation\n${installation}`;}
     //Usage---------------------------
     let usageSect = '';
-    if(usage !== '' || photoBool)  
+    if(usage !== '' || photoBool)  //creates usage section if data or phot was added
     {
       usageSect = `## Usage\n${usage}`;
-      if (photoBool) 
-      {
-         const {photoFile, photoDescription} = data;
-
-         usageSect += `\n![${photoDescription}](./assets/images/${photoFile})`;
+      if (photoBool) // if said yes to photo
+      { 
+        // store phot variables
+        var {photoFile, photoDescription} = data;
+        // if file is blank
+        if(photoFile != '')
+        {
+          // if decription is blank default to 'screenshot'
+          if(photoDescription == '')
+            photoDescription = 'screenshot'
+          //add photo string
+          usageSect += `\n![${photoDescription}](./assets/images/${photoFile})`;
+        }   
       }
     }
     //License---------------------------
@@ -139,11 +162,11 @@ function writeToFile(fileName, data) {
       questionsSect = `## Questions`;
       if(username !== '' )
       {
-        questionsSect += `\nGitHub profile: https://github.com/${username}`;
+        questionsSect += `\nGitHub profile: https://github.com/${username}\n`;
       }
       if(email !== '' )
       {
-        questionsSect += `\nEmail: ${email}`;
+        questionsSect += `\nEmail: ${email}\n`;
       }
     }
     //console.log('questions: \n' + questionsSect);
@@ -165,7 +188,7 @@ function writeToFile(fileName, data) {
     let finalSections = sections.filter(function(item) {return item.trim() != '';})
     //console.log(finalSections);
     let readMe =``;
-    finalSections.forEach(sec => readMe += `\n${sec}\n`);
+    finalSections.forEach(sect => readMe += `\n${sect}\n`);
     //generate file
     fs.writeFile(fileName, readMe, (err) =>
       err ? console.log(err) : console.log('Success!')
