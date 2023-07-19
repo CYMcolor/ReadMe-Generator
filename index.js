@@ -52,21 +52,20 @@ const questions = [
       }
 ];
 
-const fileName = 'test.txt';
+const fileName = 'README.md';
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     //store data as independent variables
     const {title, description, installation, usage, license, contributing, tests, username, email} = data;
-    let readMe;
     //console.log(data);
     //Sections//////////////////////////////////////////////////
     //Title--------------------
     let titleSect = '';
     if(title === '')  {titleSect = '# <Your-Project-Title>';}
     else {titleSect = `# ${title}`;}
-    //Description----------------
-    let descriptionSect = '## Description';
-    if(description !== '')  {descriptionSect += `\n${description}`;}
+    //Description-----------------
+    let descriptionSect = '';
+    if(description !== '')  {descriptionSect = `## Description\n${description}`;}
     //Table of Contents----------------
     let tableContents = '## Table of Contents';
     if(installation !== '') 
@@ -81,14 +80,65 @@ function writeToFile(fileName, data) {
       {tableContents += '\n- [Tests](#tests)';}
     if(username !== '' || email !== '') 
       {tableContents += '\n- [Questions](#questions)';}
-    //console.log('table: \n' + tableContents);
+    //Installation---------------------------
+    let installationSect = '';
+    if(installation !== '')  {installationSect = `## Installation\n${installation}`;}
+    //Usage---------------------------
+    let usageSect = '';
+    if(usage !== '')  
+    {
+      usageSect = `## Usage\n${usage} \n![screenshot](./assets/images/screenshot.png)`;
+    }
+    //License---------------------------
+    let licenseSect = '';
+    if(license !== '')  
+    { 
+      licenseSect = `## License\n${license}`;
+      //call generateMarkdown
+      var mark = generateMarkdown(license);
+    }
+    //Contributing---------------------------
+    let contributingSect = '';
+    if(contributing !== '')  {contributingSect = `## Contributing\n${contributing}`;}
+    //Tests----------------------
+    let testsSect = '';
+    if(tests !== '')  {testsSect= `## Tests\n${tests}`;}
+    //Questions-----------------
+    let questionsSect = '';
+    if(username !== '' || email !== '')   
+    {
+      questionsSect = `## Questions`;
+      if(username !== '' )
+      {
+        questionsSect += `\nGitHub profile: https://github.com/${username}`;
+      }
+      if(email !== '' )
+      {
+        questionsSect += `\nEmail: ${email}`;
+      }
+    }
+    console.log('questions: \n' + questionsSect);
     //end of Sections//////////////////////////////////////////////////
-    //test generateMarkdown
-    var mark = generateMarkdown(license);
+    //put all sections in array
+    let sections = [
+      titleSect,
+      descriptionSect,
+      tableContents,
+      installationSect,
+      usageSect,
+      licenseSect,
+      contributingSect,
+      testsSect,
+      questionsSect
+    ];
     
-
+    //remove all empty sections
+    let finalSections = sections.filter(function(item) {return item.trim() != '';})
+    console.log(finalSections);
+    let readMe =``;
+    finalSections.forEach(sec => readMe += `\n${sec}\n`);
     //generate file
-    fs.writeFile(fileName, JSON.stringify(data.title), (err) =>
+    fs.writeFile(fileName, readMe, (err) =>
       err ? console.log(err) : console.log('Success!')
     );
 }
