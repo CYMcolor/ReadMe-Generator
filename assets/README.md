@@ -1,8 +1,10 @@
 
-# fdsg
+# Title
+
+[![License: MIT License](https://img.shields.io/badge/License-MIT_License-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-sgf
+descript
 
 ## Table of Contents
 - [Installation](#installation)
@@ -10,21 +12,30 @@ sgf
 - [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
-sgfd
+install
 
 ## Usage
-hser
+use
 
+![screenshot](./assets/images/screenshot.png)
 
 ## License
-Boost Software License 1.0 
+ This application is covered under MIT License
+You can click on the badge for further information.
 
-[![License: Boost Software License 1.0](https://img.shields.io/badge/License-Boost_Software_License_1.0-blue.svg)](https://www.boost.org/LICENSE_1_0.txt)
+[![License: MIT License](https://img.shields.io/badge/License-MIT_License-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Contributing
-sgf
+node.js
 
 ## Tests
-rety
+run in terminal
+
+## Questions
+GitHub profile: https://github.com/cym
+
+Contact Info: run away
+

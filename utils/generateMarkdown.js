@@ -15,19 +15,19 @@ let licenseList = [
   'none'
 ];
 let linkList = [
-  '(https://opensource.org/licenses/MIT)', 
-  '(https://www.gnu.org/licenses/gpl-3.0)',
-  '(https://opensource.org/licenses/Apache-2.0)',
-  '(https://www.boost.org/LICENSE_1_0.txt)',
-  '(https://opensource.org/license/bsd-2-clause/)',
-  '(https://opensource.org/license/BSD-3-clause/)',
-  '(https://creativecommons.org/publicdomain/zero/1.0/)',
-  '(https://www.eclipse.org/legal/epl-2.0/)',
-  '(https://www.gnu.org/licenses/agpl-3.0)',
-  '(https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)',
-  '(https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)',
-  '(https://opensource.org/licenses/MPL-2.0)',
-  '(https://opensource.org/license/unlicense/)',
+  'https://opensource.org/licenses/MIT', 
+  'https://www.gnu.org/licenses/gpl-3.0',
+  'https://opensource.org/licenses/Apache-2.0',
+  'https://www.boost.org/LICENSE_1_0.txt',
+  'https://opensource.org/license/bsd-2-clause/',
+  'https://opensource.org/license/BSD-3-clause/',
+  'https://creativecommons.org/publicdomain/zero/1.0/',
+  'https://www.eclipse.org/legal/epl-2.0/',
+  'https://www.gnu.org/licenses/agpl-3.0',
+  'https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html',
+  'https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html',
+  'https://opensource.org/licenses/MPL-2.0',
+  'https://opensource.org/license/unlicense/',
 ]
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -49,13 +49,13 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   let badge = renderLicenseBadge(license);
   let link = renderLicenseLink(license);
-  licenseSect = badge+link;
+  licenseSect =`${badge}(${link})`;
   return licenseSect;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let markdown = `## License\n${data} \n`+renderLicenseSection(data);
+  let markdown = `\n`+ renderLicenseSection(data);
   return markdown;
 }
 

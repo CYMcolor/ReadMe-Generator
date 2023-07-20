@@ -87,6 +87,11 @@ const questions = [
     type: 'input',
     message: 'Enter email:',
     name: 'email'
+  },
+  {
+    type: 'input',
+    message: 'Enter how to contact you:',
+    name: 'contact'
   }
 ];
 
@@ -94,13 +99,29 @@ const fileName = './assets/README.md';
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     //store data as independent variables
-    const {title, description, installation, usage, photoBool, license, contributing, tests, username, email} = data;
+    const {
+      title, 
+      description,
+      installation,
+      usage,
+      photoBool,
+      license,
+      contributing,
+      tests,
+      username,
+      email,
+      contact
+      } = data;
     //console.log(data);
     //Sections//////////////////////////////////////////////////
     //Title--------------------
     let titleSect = '';
     if(title === '')  {titleSect = '# <Your-Project-Title>';}
     else {titleSect = `# ${title}`;}
+    if(license !== 'none')  
+    { 
+      titleSect += generateMarkdown(license);
+    }
     //Description-----------------
     let descriptionSect = '';
     if(description !== '')  {descriptionSect = `## Description\n${description}`;}
@@ -125,19 +146,20 @@ function writeToFile(fileName, data) {
     let usageSect = '';
     if(usage !== '' || photoBool)  //creates usage section if data or phot was added
     {
-      usageSect = `## Usage\n${usage}\n`;
+      usageSect = `## Usage\n${usage}`;
       if (photoBool) // if said yes to photo
       { 
         // store phot variables
         var {photoFile, photoDescription} = data;
-        // if file is blank
-        if(photoFile != '')
-        {
-          // if decription is blank default to 'screenshot'
-          if(photoDescription == '')
+        //if description is blank alt text will be 'screenshot'
+        if(photoDescription == '')
             photoDescription = 'screenshot';
-          //add photo string
-          usageSect += `\n![${photoDescription}](./assets/images/${photoFile})`;
+        // if file is blank use placeholder
+        if(photoFile == ''){
+          usageSect += `\n\n![${photoDescription}](https://via.placeholder.com/200)`;
+        }
+        else{
+          usageSect += `\n\n![${photoDescription}](./assets/images/${photoFile})`;
         }   
       }
     }
@@ -145,7 +167,9 @@ function writeToFile(fileName, data) {
     let licenseSect = '';
     if(license !== 'none')  
     { 
-      licenseSect = generateMarkdown(license);
+      licenseSect += `## License\n This application is covered under ${license}`;
+      licenseSect += `\nYou can click on the badge for further information.`;
+      licenseSect += generateMarkdown(license);
     }
     //Contributing---------------------------
     let contributingSect = '';
@@ -155,7 +179,7 @@ function writeToFile(fileName, data) {
     if(tests !== '')  {testsSect= `## Tests\n${tests}`;}
     //Questions-----------------
     let questionsSect = '';
-    if(username !== '' || email !== '')   
+    if(username !== '' || email !== '' || contact != '')   
     {
       questionsSect = `## Questions`;
       if(username !== '' )
@@ -165,6 +189,10 @@ function writeToFile(fileName, data) {
       if(email !== '' )
       {
         questionsSect += `\nEmail: ${email}\n`;
+      }
+      if(contact !== '' )
+      {
+        questionsSect += `\nHow to reach me: ${contact}\n`;
       }
     }
     //end of Sections//////////////////////////////////////////////////
