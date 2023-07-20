@@ -54,7 +54,7 @@ const questions = [
       'MIT License', 
       'GNU GPLv3',
       'ApacheLicense 2.0',
-      'Boost Software LLicense 1.0',
+      'Boost Software License 1.0',
       'BSD 2-Clause "Simplified" License',
       'BSD 3-Clause "New" or "Revised" License',
       'Creative Commons Zero v1.0 Universal',
@@ -95,7 +95,7 @@ const fileName = 'README.md';
 function writeToFile(fileName, data) {
     //store data as independent variables
     const {title, description, installation, usage, photoBool, license, contributing, tests, username, email} = data;
-    console.log(data);
+    //console.log(data);
     //Sections//////////////////////////////////////////////////
     //Title--------------------
     let titleSect = '';
@@ -110,7 +110,7 @@ function writeToFile(fileName, data) {
       {tableContents += '\n- [Installation](#installation)';}
     if(usage !== '') 
       {tableContents += '\n- [Usage](#usage)';}
-    if(license !== '') 
+    if(license !== 'none') 
       {tableContents += '\n- [License](#license)';}
     if(contributing !== '') 
       {tableContents += '\n- [Contributing](#contributing)';}
@@ -143,11 +143,9 @@ function writeToFile(fileName, data) {
     }
     //License---------------------------
     let licenseSect = '';
-    if(license !== '')  
+    if(license !== 'none')  
     { 
-      licenseSect = `## License\n${license}`;
-      //call generateMarkdown
-      var mark = generateMarkdown(license);
+      licenseSect = generateMarkdown(license);
     }
     //Contributing---------------------------
     let contributingSect = '';
@@ -169,7 +167,6 @@ function writeToFile(fileName, data) {
         questionsSect += `\nEmail: ${email}\n`;
       }
     }
-    //console.log('questions: \n' + questionsSect);
     //end of Sections//////////////////////////////////////////////////
     //put all sections in array
     let sections = [
