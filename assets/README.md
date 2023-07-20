@@ -1,10 +1,10 @@
 
-# Title
+# Sample Title
 
 [![License: MIT License](https://img.shields.io/badge/License-MIT_License-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-descript
+This is demonstrating the application
 
 ## Table of Contents
 - [Installation](#installation)
@@ -15,12 +15,12 @@ descript
 - [Questions](#questions)
 
 ## Installation
-install
+Install Node.js
 
 ## Usage
-use
+Make a README file
 
-![screenshot](./assets/images/screenshot.png)
+![This is a screenshot](./assets/images/screenshot.png)
 
 ## License
  This application is covered under MIT License
@@ -29,13 +29,15 @@ You can click on the badge for further information.
 [![License: MIT License](https://img.shields.io/badge/License-MIT_License-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Contributing
-node.js
+Node.js
 
 ## Tests
-run in terminal
+N/a
 
 ## Questions
-GitHub profile: https://github.com/cym
+GitHub profile: https://github.com/ThissaRealname
 
-Contact Info: run away
+Email: thissarealname@gmail.com
+
+How to reach me: Please don't, run away
 
