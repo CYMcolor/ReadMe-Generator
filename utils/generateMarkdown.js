@@ -27,7 +27,7 @@ let linkList = [
   '(https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)',
   '(https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)',
   '(https://opensource.org/licenses/MPL-2.0)',
-  '(http://unlicense.org/)',
+  '(https://opensource.org/license/unlicense/)',
 ]
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string

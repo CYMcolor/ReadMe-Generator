@@ -90,7 +90,7 @@ const questions = [
   }
 ];
 
-const fileName = 'README.md';
+const fileName = './assets/README.md';
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     //store data as independent variables
@@ -135,7 +135,7 @@ function writeToFile(fileName, data) {
         {
           // if decription is blank default to 'screenshot'
           if(photoDescription == '')
-            photoDescription = 'screenshot'
+            photoDescription = 'screenshot';
           //add photo string
           usageSect += `\n![${photoDescription}](./assets/images/${photoFile})`;
         }   
