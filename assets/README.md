@@ -1,22 +1,21 @@
 
-# hfghd
+# fgsdfg
 
 ## Description
-dfgh
+sdgf
 
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
 
 ## Installation
-dfh
+sger
 
 ## Usage
-tdr
+hfdgh
+![screenshot of README prompts from inquirer in the terminal](./assets/images/screenshot.PNG)
 
 ## License
 MIT License 
@@ -24,13 +23,4 @@ MIT License
 [![License: MIT License](https://img.shields.io/badge/License-MIT_License-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Contributing
-dfgh
-
-## Tests
-t
-
-## Questions
-GitHub profile: https://github.com/tr
-
-Email: dtr
-
+fdg

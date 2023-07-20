@@ -125,7 +125,7 @@ function writeToFile(fileName, data) {
     let usageSect = '';
     if(usage !== '' || photoBool)  //creates usage section if data or phot was added
     {
-      usageSect = `## Usage\n${usage}`;
+      usageSect = `## Usage\n${usage}\n`;
       if (photoBool) // if said yes to photo
       { 
         // store phot variables
