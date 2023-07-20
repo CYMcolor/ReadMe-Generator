@@ -2,7 +2,7 @@
 # title
 
 ## Description
-dgs
+des
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,21 +13,24 @@ dgs
 - [Questions](#questions)
 
 ## Installation
-jr
+ins
 
 ## Usage
-hfgd
+use
 
 ## License
-Creative Commons Zero v1.0 Universal 
-[![License: Creative Commons Zero v1.0 Universal](https://img.shields.io/badge/Creative-Commons-Zero-v1.0-Universal-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+Mozilla Public License 2.0 
+
+[![License: Mozilla Public License 2.0](https://img.shields.io/badge/Mozilla_Public_License_2.0-blue.svg)](https://opensource.org/licenses/MPL-2.0)
 
 ## Contributing
-dgfhf
+node
 
 ## Tests
-tdrh
+none
 
 ## Questions
-GitHub profile: https://github.com/dgfnjd
+GitHub profile: https://github.com/cym
+
+Email: ds
 
