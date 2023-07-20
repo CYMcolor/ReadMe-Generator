@@ -15,7 +15,9 @@ The user will be asked to enter information for a README file and then the progr
 Download code from the GitHub repository. Have Node.js installed. Link to Node.js downloads: https://nodejs.dev/en/download/. In a terminal input npm init -y. Then in the terminal install inquirer version 8.2.4 by inputting npm install inquirer@8.2.4.
 
 ## Usage
-Generate a README file by answering a series of prompts. It will display in order the project title, description, table of contents, installation, usage, license, contributing, tests, and questions. The README will be generated in the assets folder named REAME.md (not to be confused with this README).
+Generate a README file by answering a series of prompts. It will display in order the project title, description, table of contents, installation, usage, license, contributing, tests, and questions. 
+
+To run the program, in a terminal input node index and then the prompts will appear. Type an answer (unless told otherwise) and hit enter to continue to next prompt. If the user does not want to fill out a prompt it can be left empty. Once all the prompts are done, the terminal will say "Succsess!". The README will be generated in the assets folder as REAME.md (not to be confused with this README). The user can use this program at any time, but the previous README will be overwritten.
 
 If the title is left blank, the title will have template version. If a section is left blank, then it will not appear on the generated README nor will it appear on the table of contents section. The table of contents section will have a link to the respective sections for quick access. 
 
@@ -36,6 +38,8 @@ MIT License
 Node.js (download here: https://nodejs.dev/en/download/)
 
 Badge generator: https://shields.io/
+
+Guidance on README format: https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide 
 
 ## Tests
 N/A
