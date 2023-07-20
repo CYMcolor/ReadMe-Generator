@@ -1,30 +1,31 @@
 
-# sdgf
+# sgdg
 
 ## Description
-serg
+trshr
 
 ## Table of Contents
 - [Installation](#installation)
-- [Usage](#usage)
+- [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
-rth
+dgfh
 
-## Usage
-rths
+## License
+BSD 3-Clause "New" or "Revised" License 
+[![License: BSD 3-Clause "New" or "Revised" License](https://img.shields.io/badge/BSD 3-Clause "New" or "Revised" License-blue.svg)](https://opensource.org/license/BSD-3-clause/)
 
 ## Contributing
-sgfd
+dgfh
 
 ## Tests
-sht
+dfhr
 
 ## Questions
-GitHub profile: https://github.com/rdht
+GitHub profile: https://github.com/tdfh
 
-Email: srh
+Email: cdf
 
