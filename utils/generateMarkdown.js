@@ -32,7 +32,7 @@ let linkList = [
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  const licenseDash = license.replace(/\s/g , "-");
+  const licenseDash = license.replace(/\s/g , "_");
   return `[![License: ${license}](https://img.shields.io/badge/${licenseDash}-blue.svg)]`
 }
 
