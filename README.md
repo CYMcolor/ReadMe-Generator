@@ -1,8 +1,8 @@
 
-# sfdg
+# REAME Generator
 
 ## Description
-sdfg
+The user will be asked to enter information for a README file and then the program will generate a README with the given information.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,25 +13,24 @@ sdfg
 - [Questions](#questions)
 
 ## Installation
-sre
+Download code from the GitHub repository. Have Node.js installed, in a terminal install inquirer version 8.2.4. Run code by inputing node i
 
 ## Usage
-esr
-![dy](./assets/images/ddytr)
+Generate a README file by answering a series of prompts.
 
 ## License
-Eclipse Public License 2.0 
+MIT License 
 
-[![License: Eclipse Public License 2.0](https://img.shields.io/badge/License-Eclipse_Public_License_2.0-blue.svg)](https://www.eclipse.org/legal/epl-2.0/)
+[![License: MIT License](https://img.shields.io/badge/License-MIT_License-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Contributing
-dh
+Node.js
 
 ## Tests
-drt
+N/A
 
 ## Questions
-GitHub profile: https://github.com/drt
+GitHub profile: https://github.com/CYMcolor
 
-Email: du
+Email: camillemaclaren@gmail.com
 

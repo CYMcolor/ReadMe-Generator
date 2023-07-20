@@ -6,22 +6,22 @@ const generateMarkdown = require('./utils/generateMarkdown');
 const questions = [
   {
       type: 'input',
-      message: 'What is the title of your project?',
+      message: 'Enter title:',
       name: 'title',
   },
   {
     type: 'input',
-    message: 'What is it\'s description?',
+    message: 'Enter description:',
     name: 'description',
   },
   {
     type: 'input',
-    message: 'Installation instructions?',
+    message: 'Enter installation instructions:',
     name: 'installation',
   },
   {
     type: 'input',
-    message: 'What is it\'s usage?',
+    message: 'Enter it\'s usage:',
     name: 'usage'
   },
   {
@@ -31,7 +31,7 @@ const questions = [
   },
   {
     type: 'input',
-    message: 'Photo file\'s name (Will refer to assets/images folder)',
+    message: 'Photo file\'s name (Will refer to assets/images folder):',
     name: 'photoFile',
     when(answers) //only asks if photBool is true
     {
@@ -40,7 +40,7 @@ const questions = [
   },
   {
     type: 'input',
-    message: 'Photo\'s description',
+    message: 'Photo\'s description:',
     name: 'photoDescription',
     when(answers) //only asks if photBool is true
     {
@@ -49,7 +49,7 @@ const questions = [
   },
   {
     type: 'list',
-    message: 'what is it\s license?',
+    message: 'Choose it\'s license?',
     choices: [
       'MIT License', 
       'GNU GPLv3',
@@ -70,22 +70,22 @@ const questions = [
   },
   {
     type: 'input',
-    message: 'Any contributions?',
+    message: 'Enter contributions:',
     name: 'contributing'
   },
   {
     type: 'input',
-    message: 'Enter Test insrtuctions',
+    message: 'Enter test insrtuctions',
     name: 'tests'
   },
   {
     type: 'input',
-    message: 'Enter GitHub username',
+    message: 'Enter GitHub username:',
     name: 'username'
   },
   {
     type: 'input',
-    message: 'Enter email',
+    message: 'Enter email:',
     name: 'email'
   }
 ];
